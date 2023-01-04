@@ -75,7 +75,7 @@ function previewFile(file) {
 }
 
 function uploadFile(file, i) {
-  var url = 'https://api.cloudinary.com/v1_1/joezimim007/image/upload'
+  var url = 'https://dialmak.github.io/proba/'
   var xhr = new XMLHttpRequest()
   var formData = new FormData()
   xhr.open('POST', url, true)
@@ -95,7 +95,7 @@ function uploadFile(file, i) {
     }
   })
 
-  formData.append('upload_preset', 'ujpu6gyk')
+  formData.append('upload_preset', 'dialmak')
   formData.append('file', file)
   xhr.send(formData)
 }
