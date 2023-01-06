@@ -48,6 +48,5 @@ input[type="file"] {
 
 #container {
     height: 500px;
-    min-width: 600px;
     margin: 0 auto
 }
