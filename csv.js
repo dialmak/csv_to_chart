@@ -651,9 +651,9 @@ function setChart(data) {
 //      console.log (item_a);
 //     label_input.style.display = "none"
 
-window.addEventListener("load", function() {
+
    setChart(reader.result); // Ваш код
- });
+
 
 //      window.location.href='./index.html'
     };
