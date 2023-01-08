@@ -634,7 +634,7 @@ function setChart(data) {
     let file = input[0];
 
 
-    console.log(file); 
+ //   console.log(file); 
 //  console.log(`File name: ${file.name}`); 
 //  console.log(`Last modified: ${file.lastModified}`); 
 //  console.log(`File webkitRelativePath: ${file.webkitRelativePath}`);
@@ -646,7 +646,7 @@ function setChart(data) {
     reader.readAsText(file);
 
     reader.onload = function() {
-      console.log(reader.result);
+ //     console.log(reader.result);
 //      var item_a = document.getElementById('fileSelect');
 //      console.log (item_a);
 //     label_input.style.display = "none"
