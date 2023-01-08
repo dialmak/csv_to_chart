@@ -142,7 +142,7 @@ function setChart(data) {
         return fullDate.getTime();
       },
       complete: function () {       
-        console.log ('OK');
+//        console.log ('OK');
       }   
     },
 
