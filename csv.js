@@ -2,7 +2,7 @@ console.time('create list');
 let chart;
 
   window.addEventListener("load", function() {
-    setChart(0); // Ваш код
+    setChart(chart); // Ваш код
   });
 
  
@@ -649,7 +649,7 @@ function setChart(data) {
       console.log(reader.result);
 //      var item_a = document.getElementById('fileSelect');
 //      console.log (item_a);
-      label_input.style.display = "none"
+//     label_input.style.display = "none"
       setChart(reader.result);
 //      window.location.href='./index.html'
     };

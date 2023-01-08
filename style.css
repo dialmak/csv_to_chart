@@ -18,23 +18,8 @@ input[type="file"] {
     background-color: #999999;
 }
 
-@font-face {
-	font-family: 'Roboto Mono';
-	src: url('./RobotoMono-Regular.ttf');
-}
-
-@font-face {
-	font-family: 'JetBrains Mono';
-	src: url('./JetBrainsMono-Regular.ttf');
-}
-
-@font-face {
-	font-family: 'Inconsolata Condensed';
-	src: url('./Inconsolata_Condensed-Regular.ttf');
-}
-
 .tooltip {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: monospace, monospace;
   font-size: 12px;
   line-height: 1.2;
 }
