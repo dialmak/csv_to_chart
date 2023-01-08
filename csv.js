@@ -1,4 +1,4 @@
-console.time('create list');
+// console.time('create list');
 let chart;
 
  // window.addEventListener("load", function() {
@@ -7,7 +7,7 @@ let chart;
 
  
 
-// let url = './data.csv';
+ let myurl = './file/proba_nobom.csv';
 
 function convertToFive (myNum, myFixed) {
   if (isNaN(myNum))  return '     ';
@@ -119,7 +119,7 @@ function setChart(data) {
     },
 
     data: {
-      csv: data,
+      csvURL: myurl,
       startRow: 0,
       endRow: undefined,
       startColumn: 0,
@@ -672,3 +672,6 @@ function setChart(data) {
 }
 
 
+window.addEventListener("load", function() {
+  setChart(myurl); // Ваш код
+});
