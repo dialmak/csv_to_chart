@@ -1,9 +1,9 @@
 console.time('create list');
 let chart;
 
-  window.addEventListener("load", function() {
-    setChart(chart); // Ваш код
-  });
+ // window.addEventListener("load", function() {
+//    setChart(chart); // Ваш код
+ // });
 
  
 
@@ -650,7 +650,11 @@ function setChart(data) {
 //      var item_a = document.getElementById('fileSelect');
 //      console.log (item_a);
 //     label_input.style.display = "none"
-      setChart(reader.result);
+
+window.addEventListener("load", function() {
+   setChart(reader.result); // Ваш код
+ });
+
 //      window.location.href='./index.html'
     };
 
