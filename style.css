@@ -18,7 +18,7 @@ body {
 #main-content {
   text-align: center;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1.5;
 }
 
 .visually-hidden {
@@ -51,7 +51,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
 .tooltip {
   font-family: monospace, monospace;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.2;
 }
 
 .highcharts-menu-item {
