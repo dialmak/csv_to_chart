@@ -41,7 +41,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
-    padding: 0px 10px;
+    padding: 2px 10px;
     cursor: pointer;
     color: white;
     background-color: #999999;
