@@ -71,6 +71,7 @@ fileUploader.addEventListener('change', (event) => {
     reader.readAsText(file);
     reader.onload = function() {
     //  console.log(reader.result);
+        console.log (reader.result.indexOf('Дата та час'));
         setChart(reader.result);
     };
 
