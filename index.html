@@ -65,7 +65,7 @@ fileUploader.addEventListener('change', (event) => {
     const size = file.size;
     // console.log('size', size);
     let msg = '';
-    msg = `<span style="color:green;"> Обрано файл ${name} розміром ${returnFileSize(size)}. </span>`;
+    msg = `<span style="color:green;"> Обрано файл ${name} розміром ${returnFileSize(size)} </span>`;
     feedback.innerHTML = msg;
     //let url = URL.createObjectURL(file);
     let reader = new FileReader();
@@ -96,9 +96,9 @@ function returnFileSize(number) {
     if (number < 1024) {
         return number + 'байт';
     } else if (number >= 1024 && number < 1048576) {
-        return (number / 1024).toFixed(2) + 'кБ';
+        return (number / 1024).toFixed(1) + 'кБ';
     } else if (number >= 1048576) {
-        return (number / 1048576).toFixed(2) + 'МБ';
+        return (number / 1048576).toFixed1(1)) + 'МБ';
     }
 }
   </script>
