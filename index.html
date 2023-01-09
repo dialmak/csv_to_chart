@@ -36,22 +36,19 @@
       </noscript>
       <div id="main-content" >
             <form enctype="multipart/form-data">
-            <label for="file-uploader" class="custom-file-upload">Вибрати файл</label>
+            <label for="file-uploader" id="feedback" class="custom-file-upload">Вибрати файл</label>
             <input type="file" id="file-uploader" name="file-uploader" class="visually-hidden" accept=".csv" />
             </form>     
-            <span id="feedback"></span>
-            <br />
             <span id="help">
             Допомога : <strong>
             <a target="_blank" href="./help/index.html">довідка</a>
             </strong> , завантажити <strong>
             <a href="./file/proba.csv" download="">приклад</a>
-            </strong>
-            <br />         
+            </strong>       
             </span>
 
             
-
+         <br />
          <div id="container"></div>
       </div>
       <script src="./csv.js"></script>
