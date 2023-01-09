@@ -71,8 +71,13 @@ fileUploader.addEventListener('change', (event) => {
     reader.readAsText(file);
     reader.onload = function() {
     //  console.log(reader.result);
-        console.log (reader.result.indexOf('Дата та час'));
-        setChart(reader.result);
+    let check = reader.result.indexOf('Дата та час');
+        if (check !== 0 || check !== 1 ) {
+            msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некорректний </span>`;
+            feedback.innerHTML = msg; 
+        } else {
+            setChart(reader.result);
+        }       
     };
 
     reader.onerror = function() {
