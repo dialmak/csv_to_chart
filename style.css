@@ -35,6 +35,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
 
 #help {
     font-size: 10px;
+    font-style: italic;
 }
 
 .custom-file-upload {
