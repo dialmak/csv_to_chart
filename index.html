@@ -70,15 +70,15 @@ fileUploader.addEventListener('change', (event) => {
     //let url = URL.createObjectURL(file);
     let reader = new FileReader();
     reader.readAsText(file);
-    reader.onloadend = function() {
-    //  console.log (url);
+    reader.onload = function() {
     //  console.log(reader.result);
-    //setChart(url);
         setChart(reader.result);
     };
 
     reader.onerror = function() {
-        console.log(reader.error);
+        msg = `<span style="color:#C70039 ;"> Помилка зчитування файлу <strong> ${name} </strong></span>`;
+        feedback.innerHTML = msg;
+    //    console.log(reader.error);
     };
 
     //  let link = document.createElement('a');
