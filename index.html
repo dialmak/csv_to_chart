@@ -94,11 +94,11 @@ fileUploader.addEventListener('change', (event) => {
 
 function returnFileSize(number) {
     if (number < 1024) {
-        return number + 'байт';
+        return number + ' байт';
     } else if (number >= 1024 && number < 1048576) {
-        return (number / 1024).toFixed(1) + 'кБ';
+        return (number / 1024).toFixed(1) + ' кБ';
     } else if (number >= 1048576) {
-        return (number / 1048576).toFixed1(1) + 'МБ';
+        return (number / 1048576).toFixed1(1) + ' МБ';
     }
 }
   </script>
