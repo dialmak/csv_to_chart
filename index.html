@@ -15,6 +15,7 @@
       <script src="./exporting.js"></script>
       <script src="./offline-exporting.js"></script>
       <script src="./export-data.js"></script>
+      <script src="./debugger.js"></script>
       <script src="./standalone.js"></script>
    </head>
    <body>
@@ -65,16 +66,17 @@ fileUploader.addEventListener('change', (event) => {
     const size = file.size;
     // console.log('size', size);
     let msg = '';
-    msg = `<span style="color:#3A831C;"> Обрано файл <strong> ${name} </strong> розміром <strong> ${returnFileSize(size)} </strong> </span>`;
+   // msg = `<span style="color:#3A831C;"> Обрано файл <strong> ${name} </strong> розміром <strong> ${returnFileSize(size)} </strong> </span>`;
+    msg = `<span style="color:#3A831C;"> Обрано файл <strong> ${name} </strong> </span>`;
     feedback.innerHTML = msg;
     let reader = new FileReader();
     reader.readAsText(file);
     reader.onload = function() {
     //  console.log(reader.result);
       let check = reader.result.indexOf('Дата та час');
-      console.log('check=' + check);
+    //  console.log('check=' + check);
       if (check !== 0 && check !== 1 ) {
-          msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некоректний </span>`;
+          msg = `<span style="color:#FF0000 ;"> Файл <strong> ${name} </strong> некоректний </span>`;
           feedback.innerHTML = msg; 
       } else {
           setChart(reader.result);
@@ -82,7 +84,7 @@ fileUploader.addEventListener('change', (event) => {
     };
 
     reader.onerror = function() {
-        msg = `<span style="color:#C70039 ;"> Помилка зчитування файлу <strong> ${name} </strong></span>`;
+        msg = `<span style="color:#FF0000 ;"> Помилка зчитування файлу <strong> ${name} </strong></span>`;
         feedback.innerHTML = msg;
     //    console.log(reader.error);
     };

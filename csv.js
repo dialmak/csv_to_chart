@@ -1,7 +1,6 @@
 // console.time('create list');
 let chart;
 
-
 function convertToFive (myNum, myFixed) {
   if (isNaN(myNum))  return '     ';
   if (myNum === null) return '     ';
@@ -142,171 +141,118 @@ function setChart(data) {
     tooltip: {
       split: false,
       shared: true,
-      useHTML: false,
-      className: 'tooltip',
-      xDateFormat: '%d.%m.%Y %H:%M:%S',
+      useHTML: true,
+//      className: 'tooltip',
+//      xDateFormat: '%d.%m.%Y %H:%M:%S',
 //      hideDelay: 55000,
-      formatter: function() {
-//        console.log(this);   
-        let mod;
-        let nmode;
-        let npreset; 
-        this.points.forEach (function(point) {
-           if (point.series.name == 'Режим') {
-             nmode = point.y;
-           }
-           if (point.series.name == 'Уставка') {
-             npreset = point.y;
-           }
-        });
-        let y1 = 'Напруга   : ';
-        let y2 = 'Струм     : ';
-        let y3 = 'Потенціал : ';
-        let y4 = 'Помилки   : ';
-        let y5 = 'Режим     : ';
-        if (nmode == 0) {
-          mod = y5 + 'вихід відключений  ';
-        } else if (nmode == 1) {
-          mod = y5 + 'ст. напруги  ';
-        } else if (nmode == 2) {
-          mod = y5 + 'ст. струму  ';
-        } else if (nmode == 3) {
-          mod = y5 + 'ст. потенціалу  ';
-        } else if (nmode == 4) {
-          mod = y5 + 'вст. ст. напруги  ';
-        } else if (nmode == 5) {
-          mod = y5 + 'вст. ст. струму  ';
-        } else if (nmode == 6) {
-          mod = y5 + 'вст. ст. потенціалу  ';
-        } else {
-          mod = y5 + 'невідомо  ';
-        }
-        
-        let tt = this.points.reduce(function(s, point) {
-          
-          let val = 0, valu = '     ', valp = '';
-          
-          if (point.series.name == 'Напруга') {
-            valp = convertToFive (point.y, 1);      
-            val = valp + ' ' + valu;
-            nname = '<br/>' + y1;            
-          }
-          
-          if (point.series.name == 'Напруга' && nmode == 1) {
-            valu = convertToFive (npreset, 1);   
-            val = valp + ' ' + valu;  
-          }
-          
-          if (point.series.name == 'Струм') {
-            valp = convertToFive (point.y, 1);      
-            val = valp + ' ' + valu;
-            nname = '<br/>' + y2;             
-          }
-          
-          if (point.series.name == 'Струм' && nmode == 2) {
-            valu = convertToFive (npreset, 1);   
-            val = valp + ' ' + valu;   
-          }
-          
-          if (point.series.name == 'Потенціал') {
-            valp = convertToFive (point.y, 2);      
-            val = valp + ' ' + valu;
-            nname = '<br/>' + y3;            
-          }
-          
-          if (point.series.name == 'Потенціал' && nmode == 3) {
-            valu = convertToFive (npreset, 2);   
-            val = valp + ' ' + valu;  
-          }          
-   
-          if (point.series.name == 'Помилки') {
-            nname = '<br/>' + y4; 
-          }            
-          if (point.series.name == 'Помилки') {
-            if (point.y == 0 || point.y == null) {
-              val = 'немає';
-            } else if (point.y == 1) {
-              val = '1 - E01';
-            } else if (point.y == 2) {
-              val = '2 - E02';
-            } else if (point.y == 3) {
-              val = '3 - E03';
-            } else if (point.y == 4) {
-              val = '4 - E04';
-            } else {
-              val = 'невідомо';
-            }
-          }
+     formatter: function() {
+///        console.log(this);   
+       let mod;
+       let nmode;
+       let npreset; 
+       this.points.forEach (function(point) {
           if (point.series.name == 'Режим') {
-            val = '';
-            nname = '';
+            nmode = point.y;
           }
           if (point.series.name == 'Уставка') {
-            val = '';
-            nname = '';
+            npreset = point.y;
           }
-          
-          return s + nname + val;
-        }, '');
-        //setTimeout(() => {debugger;}, 3000);
-        let tm = '<b>' + Highcharts.dateFormat('%d.%m.%y %H:%M:%S', this.x) + '</b>' + '<br/>';
-        tm = tm + mod + tt;
-        tm = tm.replaceAll (' ', '&nbsp;');
-//        console.log (tm);
-        return '<span class="tooltip">' + tm + '</span>';
-      },
-      
-//		formatter: function() {
-//			let s = '<b>' + Highcharts.dateFormat('%d.%m.%y %H:%M:%S', this.x) + '</b>';
-//			let p1 = '';
-//			let p2 = '';
-//			let p3 = '';
-//			let p4 = '';
-//			let p5 = '';
-//			this.points.forEach(point => {
-//				let py = point.y;
-//				let pa = '';
-//				let pn = point.series.name;
-//
-//					if (point.mode == 0) py = 'вихід відключений';
-//					if (point.mode == 1) py = 'стаб. напруги';
-//					if (point.mode == 2) py = 'стаб. струму';
-//					if (point.mode == 3) py = 'стаб. потенціалу';
-//					if (point.mode == 4) py = 'встановлення стаб. напруги';
-//					if (point.mode == 5) py = 'встановлення стаб. струму';
-//					if (point.mode == 6) py = 'встановлення стаб. потенціалу';
-//					pn = 'Режим&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&thinsp;';
-//					p1 = '</br>' + pn + py + pa;
-//
-//				if (point.series.name == 'Напруга') {
-//					pn = 'Напруга&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&thinsp;';
-//					py = py.toFixed(1);
-//					pa = '&thinsp;В';
-//					p2 = '</br>' + pn + py + pa;
-//				}
-//				if (point.series.name == 'Струм') {
-//					pn = 'Струм&thinsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&thinsp;';
-//					py = py.toFixed(1);
-//					pa = '&thinsp;А';
-//					p3 = '</br>' + pn + py + pa;
-//				}
-//				if (point.series.name == 'Потенціал') {
-//					pn = 'Потенціал:&thinsp;';
-//					py = py.toFixed(2);
-//					pa = '&thinsp;В';
-//					p4 = '</br>' + pn + py + pa;
-//				}
-//				if (point.series.name == 'Помилки') {
-//					if (point.y == 0 || point.y == null) py = 'немає';
-//					if (point.y == 1) py = 'немає мережі 220В';
-//					if (point.y == 2) py = 'обрив ланцюга навантаження';
-//					pn = 'Помилки&nbsp;&nbsp;:&thinsp;';
-//					p5 = '</br>' + pn + py + pa;
-//				}
-//			});
-//			s += p1 + p2 + p3 + p4 + p5;
-//			return s;
-//		},
+       });
+       let y1 = 'Напруга   : ';
+       let y2 = 'Струм     : ';
+       let y3 = 'Потенціал : ';
+       let y4 = 'Помилки   :  ';
+       let y5 = 'Режим     :  ';
+       if (nmode == 0) {
+         mod = y5 + 'вихід відключений ';
+       } else if (nmode == 1) {
+         mod = y5 + 'ст. напруги ';
+       } else if (nmode == 2) {
+         mod = y5 + 'ст. струму ';
+       } else if (nmode == 3) {
+         mod = y5 + 'ст. потенціалу ';
+       } else if (nmode == 4) {
+         mod = y5 + 'вст. ст. напруги ';
+       } else if (nmode == 5) {
+         mod = y5 + 'вст. ст. струму ';
+       } else if (nmode == 6) {
+         mod = y5 + 'вст. ст. потенціалу ';
+       } else {
+         mod = y5 + 'невідомо  ';
+       }
+       
+       let tt = this.points.reduce(function(s, point) {
+         
+         let val = 0, valu = '     ', valp = '';
+         
+         if (point.series.name == 'Напруга') {
+           valp = convertToFive (point.y, 1);      
+           val = valp + ' ' + valu;
+           nname = '<br/>' + y1;            
+         }
+         
+         if (point.series.name == 'Напруга' && nmode == 1) {
+           valu = convertToFive (npreset, 1);   
+           val = valp + ' ' + valu;  
+         }
+         
+         if (point.series.name == 'Струм') {
+           valp = convertToFive (point.y, 1);      
+           val = valp + ' ' + valu;
+           nname = '<br/>' + y2;             
+         }
+         
+         if (point.series.name == 'Струм' && nmode == 2) {
+           valu = convertToFive (npreset, 1);   
+           val = valp + ' ' + valu;   
+         }
+         
+         if (point.series.name == 'Потенціал') {
+           valp = convertToFive (point.y, 2);      
+           val = valp + ' ' + valu;
+           nname = '<br/>' + y3;            
+         }
+         
+         if (point.series.name == 'Потенціал' && nmode == 3) {
+           valu = convertToFive (npreset, 2);   
+           val = valp + ' ' + valu;  
+         }          
+  
+         if (point.series.name == 'Помилки') {
+           nname = '<br/>' + y4; 
+         }            
+         if (point.series.name == 'Помилки') {
+           if (point.y == 0 || point.y == null) {
+             val = 'немає';
+           } else if (point.y == 1) {
+             val = '1 - E01';
+           } else if (point.y == 2) {
+             val = '2 - E02';
+           } else if (point.y == 3) {
+             val = '3 - E03';
+           } else if (point.y == 4) {
+             val = '4 - E04';
+           } else {
+             val = 'невідомо';
+           }
+         }
+         if (point.series.name == 'Режим') {
+           val = '';
+           nname = '';
+         }
+         if (point.series.name == 'Уставка') {
+           val = '';
+           nname = '';
+         }
+         
+         return s + nname + val;
+       }, '');
+       //setTimeout(() => {debugger;}, 3000);
+       let tm = '<b>' + Highcharts.dateFormat('%d.%m.%y %H:%M:%S', this.x) + '</b>' + '<br/>';
+       tm = tm + mod + tt;
+       // console.log (tm);
+       return '<span class="tooltip">' + tm + '</span>';
+     },
 
 //      headerFormat:'<table><tr><th colspan="2">{point.key}</th></tr>',
 //      pointFormat: '<tr><td>{series.name}</td>' + '<td style="text-align: right"><b>{point.y}</b></td></tr>',
@@ -350,7 +296,7 @@ function setChart(data) {
 
     rangeSelector: {
       inputDateFormat: '%d.%m.%Y',
-      selected: 4,
+      selected: 7,
       buttons: [{
         type: 'hour',
         count: 1,
@@ -618,6 +564,3 @@ function setChart(data) {
 
   });
 }
-
-
-
