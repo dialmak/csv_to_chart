@@ -69,7 +69,7 @@ fileUploader.addEventListener('change', (event) => {
     feedback.innerHTML = msg;
     let reader = new FileReader();
     reader.readAsText(file);
-      reader.onload = function() {
+    reader.onload = function() {
       //  console.log(reader.result);
       let check = reader.result.indexOf('Дата та час');
       if (check !== 0 || check !== 1 ) {
