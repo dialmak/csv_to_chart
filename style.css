@@ -12,6 +12,9 @@ body {
   line-height: 1.2;
 }
 
+#feedback {
+  padding: 3px 3px;
+}
 #main-content {
   text-align: center;
   font-size: 12px;
