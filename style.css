@@ -43,8 +43,8 @@ input.visually-hidden:is(:focus, :focus-within) + label {
     display: inline-block;
     padding: 2px 10px;
     cursor: pointer;
-    color: white;
-    background-color: #999999;
+    color: #ccc;
+    background-color: #fff;
     font-size: 12px;
 }
 
