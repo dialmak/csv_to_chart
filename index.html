@@ -69,15 +69,15 @@ fileUploader.addEventListener('change', (event) => {
     feedback.innerHTML = msg;
     let reader = new FileReader();
     reader.readAsText(file);
-    reader.onload = function() {
-    //  console.log(reader.result);
-    let check = reader.result.indexOf('Дата та час');
-        if (check !== 0 || check !== 1 ) {
-            msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некорректний </span>`;
-            feedback.innerHTML = msg; 
-        } else {
-            setChart(reader.result);
-        }       
+      reader.onload = function() {
+      //  console.log(reader.result);
+      let check = reader.result.indexOf('Дата та час');
+      if (check !== 0 || check !== 1 ) {
+          msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некорректний </span>`;
+          feedback.innerHTML = msg; 
+      } else {
+          setChart(reader.result);
+      }       
     };
 
     reader.onerror = function() {
