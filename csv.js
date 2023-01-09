@@ -142,7 +142,7 @@ function setChart(data) {
     tooltip: {
       split: false,
       shared: true,
-      useHTML: true,
+      useHTML: false,
       className: 'tooltip',
       xDateFormat: '%d.%m.%Y %H:%M:%S',
 //      hideDelay: 55000,
@@ -188,35 +188,35 @@ function setChart(data) {
           
           if (point.series.name == 'Напруга') {
             valp = convertToFive (point.y, 1);      
-            val = valu + ' ' + valp;
+            val = valp + ' ' + valu;
             nname = '<br/>' + y1;            
           }
           
           if (point.series.name == 'Напруга' && nmode == 1) {
             valu = convertToFive (npreset, 1);   
-            val = valu + ' ' + valp;  
+            val = valp + ' ' + valu;  
           }
           
           if (point.series.name == 'Струм') {
             valp = convertToFive (point.y, 1);      
-            val = valu + ' ' + valp;
+            val = valp + ' ' + valu;
             nname = '<br/>' + y2;             
           }
           
           if (point.series.name == 'Струм' && nmode == 2) {
             valu = convertToFive (npreset, 1);   
-            val = valu + ' ' + valp;   
+            val = valp + ' ' + valu;   
           }
           
           if (point.series.name == 'Потенціал') {
             valp = convertToFive (point.y, 2);      
-            val = valu + ' ' + valp;
+            val = valp + ' ' + valu;
             nname = '<br/>' + y3;            
           }
           
           if (point.series.name == 'Потенціал' && nmode == 3) {
             valu = convertToFive (npreset, 2);   
-            val = valu + ' ' + valp;  
+            val = valp + ' ' + valu;  
           }          
    
           if (point.series.name == 'Помилки') {
