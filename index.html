@@ -68,11 +68,14 @@ fileUploader.addEventListener('change', (event) => {
     let msg = '';
     msg = `<span style="color:green;"> Обрано файл ${name} розміром ${returnFileSize(size)}. </span>`;
     feedback.innerHTML = msg;
+    let url = URL.createObjectURL(file);
     let reader = new FileReader();
     reader.readAsText(file);
     reader.onload = function() {
-        //  console.log(reader.result);
-        setChart(reader.result);
+      console.log (url);
+      console.log(reader.result);
+
+    //    setChart(reader.result);
     };
 
     reader.onerror = function() {
