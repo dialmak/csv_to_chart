@@ -6,6 +6,11 @@ body {
   font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 }
 
+#main-content {
+  text-align: center;
+  line-height: 1.2;
+}
+
 .visually-hidden {
   position: absolute !important;
   height: 1px;
