@@ -74,7 +74,7 @@ fileUploader.addEventListener('change', (event) => {
       let check = reader.result.indexOf('Дата та час');
       console.log('check=' + check);
       if (check !== 0 || check !== 1 ) {
-          msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некорректний </span>`;
+          msg = `<span style="color:#C70039 ;"> Файл <strong> ${name} </strong> некоректний </span>`;
           feedback.innerHTML = msg; 
       } else {
           setChart(reader.result);
