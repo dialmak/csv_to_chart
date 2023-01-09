@@ -46,7 +46,7 @@
             <br />         
             </span>
             <label for="file-uploader" class="custom-file-upload">Виберіть файл...</label>
-            <input type="file" id="file-uploader" name="file-uploader" class="visually-hidden" accept=".csv" />     
+            <input type="file" id="file-uploader" name="file-uploader" class="visually-hidden1" accept=".csv" />     
             <br />
             <div id="feedback"></div>
 
@@ -97,7 +97,7 @@ function returnFileSize(number) {
     if (number < 1024) {
         return number + 'байт';
     } else if (number >= 1024 && number < 1048576) {
-        return (number / 1024).toFixed(2) + 'КБ';
+        return (number / 1024).toFixed(2) + 'кБ';
     } else if (number >= 1048576) {
         return (number / 1048576).toFixed(2) + 'МБ';
     }
