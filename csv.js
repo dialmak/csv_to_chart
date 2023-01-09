@@ -1,13 +1,6 @@
 // console.time('create list');
 let chart;
 
- // window.addEventListener("load", function() {
-//    setChart(chart); // Ваш код
- // });
-
- 
-
- let myurl = './file/proba_nobom.csv';
 
 function convertToFive (myNum, myFixed) {
   if (isNaN(myNum))  return '     ';
@@ -119,7 +112,7 @@ function setChart(data) {
     },
 
     data: {
-      csvURL: myurl,
+      csv: data,
       startRow: 0,
       endRow: undefined,
       startColumn: 0,
@@ -628,50 +621,3 @@ function setChart(data) {
 
 
 
-    
-    function handleFiles(input) {
-
-    let file = input[0];
-
-
- //   console.log(file); 
-//  console.log(`File name: ${file.name}`); 
-//  console.log(`Last modified: ${file.lastModified}`); 
-//  console.log(`File webkitRelativePath: ${file.webkitRelativePath}`);
-//  console.log(`File size: ${file.size}`); 
-//  console.log(`File type: ${file.type}`); 
-  
-    let reader = new FileReader();
-
-    reader.readAsText(file);
-
-    reader.onload = function() {
- //     console.log(reader.result);
-//      var item_a = document.getElementById('fileSelect');
-//      console.log (item_a);
-//     label_input.style.display = "none"
-
-
-   setChart(reader.result); // Ваш код
-
-
-//      window.location.href='./index.html'
-    };
-
-    reader.onerror = function() {
-      console.log(reader.error);
-    };
-  
-//  let link = document.createElement('a');
-//  link.download = file.name;
-
-//  link.href = URL.createObjectURL(file);
-//  link.click();
-//  URL.revokeObjectURL(link.href);
-  
-}
-
-
-window.addEventListener("load", function() {
-  setChart(myurl); // Ваш код
-});
