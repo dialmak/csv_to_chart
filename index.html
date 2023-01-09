@@ -35,7 +35,11 @@
          </div>
       </noscript>
       <div id="main-content" >
-            Вибір CSV файлу для побудови графіка
+            <form enctype="multipart/form-data">
+            <label for="file-uploader" class="custom-file-upload">Вибрати файл</label>
+            <input type="file" id="file-uploader" name="file-uploader" class="visually-hidden" accept=".csv" />
+            </form>     
+            <span id="feedback"></span>
             <br />
             <span id="help">
             Допомога : <strong>
@@ -45,12 +49,8 @@
             </strong>
             <br />         
             </span>
-            <form enctype="multipart/form-data">
-            <label for="file-uploader" class="custom-file-upload">Вибрати файл</label>
-            <input type="file" id="file-uploader" name="file-uploader" class="visually-hidden" accept=".csv" />
-            </form>     
-            <br />
-            <div id="feedback"></div>
+
+            
 
          <div id="container"></div>
       </div>
