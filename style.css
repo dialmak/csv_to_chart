@@ -26,6 +26,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
 #help {
     font-size: 10px;
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -33,6 +34,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
     cursor: pointer;
     color: white;
     background-color: #999999;
+    font-size: 12px;
 }
 
 .tooltip {
