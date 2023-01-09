@@ -1,9 +1,21 @@
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
 }
 
-input[type="file"] {
-    display: none;
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+input.visually-hidden:is(:focus, :focus-within) + label {
+  outline: thin dotted;
 }
 
 #help {
@@ -32,6 +44,6 @@ input[type="file"] {
 
 
 #container {
-    height: 500px;
+
     margin: 0 auto
 }
