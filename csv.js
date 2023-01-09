@@ -112,7 +112,7 @@ function setChart(data) {
     },
 
     data: {
-      csvURL: data,
+      csv: data,
       startRow: 0,
       endRow: undefined,
       startColumn: 0,
