@@ -75,7 +75,7 @@ fileUploader.addEventListener('change', (event) => {
     reader.readAsText(file);
     reader.onloadend = function() {
     //  console.log (url);
-    //  console.log(reader.result);
+      console.log(reader.result);
     //setChart(url);
         setChart(reader.result);
     };
