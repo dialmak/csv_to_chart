@@ -1,2 +1,4 @@
 # CSV to Chart
-https://data.texnotek.com/
+CSV має бути в такому форматі
+"Дата та час";"Напруга";"Струм";"Потенціал";"Помилки";"Режим";"Уставка"
+https://data.texnotek.coм
